@@ -7,14 +7,27 @@ import ProductCard from "./ProductCard";
 
 export function Products() {
   const [error, setError] = useState("");
-  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState<Product[]>([
+    { id: 0, name: "0" },
+    { id: 1, name: "1" },
+    { id: 2, name: "2" },
+    { id: 3, name: "3" },
+    { id: 4, name: "4" },
+    { id: 5, name: "5" },
+  ]);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get<Product[]>("http://localhost:3001/api/products")
-      .then((res: any) => setProducts(res.data))
+      .then((res: any) => {
+        setProducts(res.data);
+        setLoading(false);
+      })
       .catch((err: any) => {
         setError(err.message);
+        setLoading(false);
       });
   }, []);
 
@@ -31,8 +44,12 @@ export function Products() {
           <Grid container spacing={3}>
             {products.map((product: Product, index: number) => (
               <div key={product.name}>
-                <ProductCard product={product} index={index} />
-                <br/>
+                <ProductCard
+                  product={product}
+                  index={index}
+                  loading={loading}
+                />
+                <br />
               </div>
             ))}
           </Grid>
