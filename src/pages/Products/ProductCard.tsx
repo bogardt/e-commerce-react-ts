@@ -18,8 +18,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import Product from "../../interfaces/IProduct";
-import ExpandMoreProps from "../../interfaces/IExpendMoreProps";
+import Product from "../../interfaces/Product";
+import ExpandMoreProps from "../../interfaces/ExpendMoreProps";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

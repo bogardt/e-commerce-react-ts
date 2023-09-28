@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import Product from "../../interfaces/IProduct";
+import Product from "../../interfaces/Product";
 import ProductCard from "./ProductCard";
 
 export function Products() {
